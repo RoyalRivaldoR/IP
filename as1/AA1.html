@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<script>
+    function validate() {
+    var name = document.forms.SignUp.name.value;
+    var email = document.forms.SignUp.email.value;
+    var phone = document.forms.SignUp.phone.value;
+    var password = document.forms.SignUp.pwd.value;
+    var date = document.forms.SignUp.date.value;
+    var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+    var regPhone=/^\d{10}$/;
+    var regName = /\d+$/g;
+    var regPassword = /^[A-Za-z0-9]+$/;
+    
+    if (name == "" || regName.test(name)) {
+    window.alert("Please enter your name.");
+    name.focus();
+    return false;
+    }
+
+    if (date == "") {
+    window.alert("Please enter date of birth.");
+    date.focus();
+    return false;
+    }
+
+    if (email == "" || !regEmail.test(email)) {
+    window.alert("Please enter a valid e-mail address.");
+    email.focus();
+    return false;
+    }
+
+    if (phone == "" || regPhone.test(phone)) {
+    alert("Please enter valid phone number.");
+    phone.focus();
+    return false;
+    }
+
+    if (password == "" || !regPassword.test(password)) {
+    alert("Please enter valid password and contains lettet and numbers");
+    password.focus();
+    return false;
+    }
+
+    if(password.length <6){
+    alert("Password should be atleast 6 character long");
+    password.focus();
+    return false;
+    }
+}
+</script>
+<style>
+    body{
+        background-image: url(2.jpeg);
+    }
+</style>
+</head>
+<body bgcolor="White">
+    <form name="SignUp" onsubmit = "return validate()" method="post">
+<center>
+<h1>SignUp</h1>
+<table style="border-spacing: 5pt;">
+    <tr>
+        <td>NAME</td>
+        <td><input type="text" name="name" placeholder=""></td>
+    </tr>
+    <tr>
+        <td>DOB</td>
+        <td><input type="date" name="date"></td>
+    </tr>
+    <tr>
+        <td>EMAIL</td>
+        <td><input type="email" name="email"></td>
+    </tr>
+
+    <tr>
+        <td>PHONE NO </td>
+        <td><input type="tel" name="phone"></td>
+    </tr>
+    <tr>
+        <td>PASSWORD</td>
+        <td><input type="password" name="pwd"></td>
+    </tr>
+</table>
+<div>
+<input type="submit" name="submit" >&nbsp;&nbsp;&nbsp;
+<input type="reset" name="reset";>
+</div><br><br><br>
+<h1><a href="AA.html">Next</a></h1>
+</center>
+
+</form>
+</body>
+</html>
